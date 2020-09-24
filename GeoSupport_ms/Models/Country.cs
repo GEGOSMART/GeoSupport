@@ -12,14 +12,14 @@ namespace GeoSupport_ms.Models
     {
         [Key]
         public int Id_country { get; set; }
-        [ForeignKey("Continent")]
-        public int Id_continent { get; set; }
-        [ForeignKey("Flag")]
-        public int Id_flag { get; set; }
         public double Latitude { get; set; }
         public double Longitude { get; set; }
         public string Name { get; set; }
         public string Capital { get; set; }
         public string MapImage { get; set; }
+        public Flag Flag { get; set; }
+        public List<Place> Places { get; set; } = new List<Place>();
+
+
     }
 }

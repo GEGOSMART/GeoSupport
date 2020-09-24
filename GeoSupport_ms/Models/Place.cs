@@ -11,8 +11,6 @@ namespace GeoSupport_ms.Models
     {
         [Key]
         public int Id_place { get; set; }
-        [ForeignKey("Country")]
-        public int Id_country { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
         public string PlaceImage { get; set; }

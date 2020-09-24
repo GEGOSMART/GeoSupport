@@ -11,5 +11,6 @@ namespace GeoSupport_ms.Models
         [Key]
         public int Id_continent { get; set; }
         public string Name { get; set; }
+        public List<Country> Countries{ get; set; } = new List<Country>();
     }
 }

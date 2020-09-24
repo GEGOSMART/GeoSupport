@@ -13,5 +13,9 @@ namespace GeoSupport_ms.Models
         [ForeignKey("Color")]
         public int Id_color { get; set; }
         public int order { get; set; }
+        public Color Color { get; set; }
+        public Flag Flag{ get; set; }
+
+
     }
 }
