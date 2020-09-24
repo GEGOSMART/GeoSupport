@@ -27,7 +27,7 @@ namespace GeoSupport_ms.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("HexCode")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(20)");
 
                     b.Property<double>("Name")
                         .HasColumnType("float");
@@ -63,7 +63,7 @@ namespace GeoSupport_ms.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(20)");
 
                     b.HasKey("Id_continent");
 
@@ -78,7 +78,7 @@ namespace GeoSupport_ms.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Capital")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(20)");
 
                     b.Property<int?>("ContinentId_continent")
                         .HasColumnType("int");
@@ -133,10 +133,10 @@ namespace GeoSupport_ms.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(2000)");
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(20)");
 
                     b.Property<string>("PlaceImage")
                         .HasColumnType("nvarchar(max)");
