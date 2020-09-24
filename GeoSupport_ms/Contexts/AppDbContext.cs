@@ -14,5 +14,10 @@ namespace GeoSupport_ms.Contexts
 
         }
         public DbSet<Country> Country{ get; set; }
+        public DbSet<Flag> Flag { get; set; }
+        public DbSet<Color> Color { get; set; }
+        public DbSet<Continent> Continent { get; set; }
+        public DbSet<Color_Flag> Color_Flag { get; set; }
+        public DbSet<Color_Flag> Place { get; set; }
     }
 }

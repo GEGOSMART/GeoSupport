@@ -10,6 +10,8 @@ namespace GeoSupport_ms.Models
     {
         [ForeignKey("Flag")]
         public int Id_flag { get; set; }
+        [ForeignKey("Color")]
+        public int Id_color { get; set; }
         public int order { get; set; }
     }
 }
