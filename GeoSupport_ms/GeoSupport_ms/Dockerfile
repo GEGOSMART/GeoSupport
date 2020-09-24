@@ -8,7 +8,7 @@ EXPOSE 443
 FROM mcr.microsoft.com/dotnet/core/sdk:3.1-buster AS build
 WORKDIR /src
 COPY ["GeoSupport_ms.csproj", "GeoSupport_ms/"]
-RUN dotnet restore "GeoSupport_ms.csproj"
+RUN dotnet restore "GeoSupport_ms/GeoSupport_ms.csproj"
 COPY . .
 WORKDIR "/src/GeoSupport_ms"
 RUN dotnet build "GeoSupport_ms.csproj" -c Release -o /app/build
