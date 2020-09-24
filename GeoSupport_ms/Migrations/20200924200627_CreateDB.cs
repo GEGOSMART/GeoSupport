@@ -132,17 +132,17 @@ namespace GeoSupport_ms.Migrations
             migrationBuilder.CreateIndex(
                 name: "IX_Country_ContinentId_continent",
                 table: "Country",
-                column: "ContinentId_continent");
+                column: "Id_continent");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Country_FlagId_flag",
                 table: "Country",
-                column: "FlagId_flag");
+                column: "Id_flag");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Place_CountryId_country",
                 table: "Place",
-                column: "CountryId_country");
+                column: "Id_country");
 
             migrationBuilder.CreateIndex(
                 name: "IX_COLOR_UNIQUE_HexCode",
