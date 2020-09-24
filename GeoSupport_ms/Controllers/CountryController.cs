@@ -56,7 +56,8 @@ namespace GeoSupport_ms.Controllers
         [HttpPut("{id}")]
         public ActionResult Put(int id, [FromBody] Country country)
         {
-            if(country.Id_country == id)
+ 
+             if (country.Id_country == id)
             {
                 context.Entry(country).State = EntityState.Modified;
                 context.SaveChanges();
@@ -66,6 +67,7 @@ namespace GeoSupport_ms.Controllers
             {
                 return BadRequest();
             }
+      
         }
 
         // DELETE api/<CountryController>/5
@@ -73,7 +75,7 @@ namespace GeoSupport_ms.Controllers
         public ActionResult Delete(int id)
         {
             var country = context.Country.FirstOrDefault(p => p.Id_country == id);
-            if (country == null)
+            if (country != null)
             {
                 context.Country.Remove(country);
                 context.SaveChanges();
