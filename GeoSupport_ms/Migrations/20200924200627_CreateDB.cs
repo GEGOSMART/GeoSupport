@@ -143,30 +143,6 @@ namespace GeoSupport_ms.Migrations
                 name: "IX_Place_CountryId_country",
                 table: "Place",
                 column: "Id_country");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_COLOR_UNIQUE_HexCode",
-                unique: true,
-                table: "Color",
-                column: "HexCode");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_COLOR_UNIQUE_Name",
-                unique: true,
-                table: "Color",
-                column: "Name");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_COUNTRY_UNIQUE_Name",
-                unique: true,
-                table: "Country",
-                column: "Name");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_CONTINENT_UNIQUE_Name",
-                unique: true,
-                table: "Continent",
-                column: "Name");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
