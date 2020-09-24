@@ -13,7 +13,7 @@ namespace GeoSupport_ms.Migrations
                     Id_color = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<double>(nullable: false),
-                    HexCode = table.Column<string>(nullable: true)
+                    HexCode = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -26,7 +26,7 @@ namespace GeoSupport_ms.Migrations
                 {
                     Id_continent = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(nullable: true)
+                    Name = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -39,7 +39,7 @@ namespace GeoSupport_ms.Migrations
                 {
                     Id_flag = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    FlagImage = table.Column<string>(nullable: true)
+                    FlagImage = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -58,13 +58,13 @@ namespace GeoSupport_ms.Migrations
                 {
                     table.PrimaryKey("PK_Color_Flag", x => new { x.Id_color, x.Id_flag });
                     table.ForeignKey(
-                        name: "FK_Color_Flag_Color_Id_color",
+                        name: "FK_Color_Flag_Id_color",
                         column: x => x.Id_color,
                         principalTable: "Color",
                         principalColumn: "Id_color",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Color_Flag_Flag_Id_flag",
+                        name: "FK_Color_Flag_Id_flag",
                         column: x => x.Id_flag,
                         principalTable: "Flag",
                         principalColumn: "Id_flag",
@@ -79,27 +79,27 @@ namespace GeoSupport_ms.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Latitude = table.Column<double>(nullable: false),
                     Longitude = table.Column<double>(nullable: false),
-                    Name = table.Column<string>(nullable: true),
-                    Capital = table.Column<string>(nullable: true),
-                    MapImage = table.Column<string>(nullable: true),
-                    FlagId_flag = table.Column<int>(nullable: true),
-                    ContinentId_continent = table.Column<int>(nullable: true)
+                    Name = table.Column<string>(nullable: false),
+                    Capital = table.Column<string>(nullable: false),
+                    MapImage = table.Column<string>(nullable: false),
+                    Id_flag = table.Column<int>(nullable: false),
+                    Id_continent = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Country", x => x.Id_country);
                     table.ForeignKey(
-                        name: "FK_Country_Continent_ContinentId_continent",
-                        column: x => x.ContinentId_continent,
+                        name: "FK_Country_Id_continent",
+                        column: x => x.Id_continent,
                         principalTable: "Continent",
                         principalColumn: "Id_continent",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Country_Flag_FlagId_flag",
-                        column: x => x.FlagId_flag,
+                        name: "FK_Country_Id_flag",
+                        column: x => x.Id_flag,
                         principalTable: "Flag",
                         principalColumn: "Id_flag",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -108,20 +108,20 @@ namespace GeoSupport_ms.Migrations
                 {
                     Id_place = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(nullable: true),
-                    Description = table.Column<string>(nullable: true),
-                    PlaceImage = table.Column<string>(nullable: true),
-                    CountryId_country = table.Column<int>(nullable: true)
+                    Name = table.Column<string>(nullable: false),
+                    Description = table.Column<string>(nullable: false),
+                    PlaceImage = table.Column<string>(nullable: false),
+                    Id_country = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Place", x => x.Id_place);
                     table.ForeignKey(
-                        name: "FK_Place_Country_CountryId_country",
-                        column: x => x.CountryId_country,
+                        name: "FK_Place_Id_country",
+                        column: x => x.Id_country,
                         principalTable: "Country",
                         principalColumn: "Id_country",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
@@ -143,6 +143,30 @@ namespace GeoSupport_ms.Migrations
                 name: "IX_Place_CountryId_country",
                 table: "Place",
                 column: "CountryId_country");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_COLOR_UNIQUE_HexCode",
+                unique: true,
+                table: "Color",
+                column: "HexCode");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_COLOR_UNIQUE_Name",
+                unique: true,
+                table: "Color",
+                column: "Name");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_COUNTRY_UNIQUE_Name",
+                unique: true,
+                table: "Country",
+                column: "Name");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_CONTINENT_UNIQUE_Name",
+                unique: true,
+                table: "Continent",
+                column: "Name");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
