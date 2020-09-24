@@ -11,7 +11,11 @@ namespace GeoSupport_ms.Models
     {
         [Key]
         public int Id_color { get; set; }
+        [Required]
+        [MaxLength(20)]
         public double Name { get; set; }
+        [Required]
+        [MaxLength(20)]
         public string HexCode { get; set; }
         public List<Color_Flag> Color_Flags { get; set; } = new List<Color_Flag>();
  

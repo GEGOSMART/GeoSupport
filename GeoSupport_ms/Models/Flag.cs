@@ -11,6 +11,8 @@ namespace GeoSupport_ms.Models
     {
         [Key]
         public int Id_flag { get; set; }
+        [Required]
+        [MaxLength(2000)]
         public string FlagImage { get; set; }
         public List<Color_Flag> Color_Flags { get; set; } = new List<Color_Flag>();
 

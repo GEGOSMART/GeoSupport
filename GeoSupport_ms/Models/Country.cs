@@ -12,10 +12,18 @@ namespace GeoSupport_ms.Models
     {
         [Key]
         public int Id_country { get; set; }
+        [Required]
         public double Latitude { get; set; }
+        [Required]
         public double Longitude { get; set; }
+        [Required]
+        [MaxLength(20)]
         public string Name { get; set; }
+        [Required]
+        [MaxLength(20)]
         public string Capital { get; set; }
+        [Required]
+        [MaxLength(2000)]
         public string MapImage { get; set; }
         public Flag Flag { get; set; }
         public List<Place> Places { get; set; } = new List<Place>();
