@@ -93,10 +93,10 @@ namespace GeoSupport_ms.Migrations
                         .HasColumnType("float");
 
                     b.Property<string>("MapImage")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(2000)");
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(20)");
 
                     b.HasKey("Id_country");
 
@@ -115,7 +115,7 @@ namespace GeoSupport_ms.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("FlagImage")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(2000)");
 
                     b.HasKey("Id_flag");
 
@@ -139,7 +139,7 @@ namespace GeoSupport_ms.Migrations
                         .HasColumnType("nvarchar(20)");
 
                     b.Property<string>("PlaceImage")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(2000)");
 
                     b.HasKey("Id_place");
 
