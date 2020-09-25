@@ -11,6 +11,8 @@ namespace GeoSupport_ms.Models
     {
         [Key]
         public int Id_place { get; set; }
+        [ForeignKey("Country")]
+        public int CountryId_country { get; set; }
         [Required]
         [MaxLength(200)]
         public string Name { get; set; }

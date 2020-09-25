@@ -12,6 +12,10 @@ namespace GeoSupport_ms.Models
     {
         [Key]
         public int Id_country { get; set; }
+        [ForeignKey("Continent")]
+        public int ContinentId_continent { get; set; }
+        [ForeignKey("Flag")]
+        public int FlagId_flag { get; set; }
         [Required]
         public double Latitude { get; set; }
         [Required]
