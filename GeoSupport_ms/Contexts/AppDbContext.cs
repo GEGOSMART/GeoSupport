@@ -25,5 +25,7 @@ namespace GeoSupport_ms.Contexts
         }
 
         public DbSet<Color_Flag> Place { get; set; }
+
+        public DbSet<GeoSupport_ms.Models.Place> Place_1 { get; set; }
     }
 }
