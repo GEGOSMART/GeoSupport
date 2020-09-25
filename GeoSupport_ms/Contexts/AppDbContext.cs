@@ -18,14 +18,15 @@ namespace GeoSupport_ms.Contexts
         public DbSet<Color> Color { get; set; }
         public DbSet<Continent> Continent { get; set; }
         public DbSet<Color_Flag> Color_Flag { get; set; }
+        public DbSet<Place> Place { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Color_Flag>()
                 .HasKey(x => new { x.Id_color, x.Id_flag });
         }
 
-        public DbSet<Color_Flag> Place { get; set; }
+        
 
-        public DbSet<GeoSupport_ms.Models.Place> Place_1 { get; set; }
+ 
     }
 }

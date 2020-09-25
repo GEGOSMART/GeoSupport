@@ -23,16 +23,16 @@ namespace GeoSupport_ms.Controllers
 
         // GET: api/Place
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Place>>> GetPlace_1()
+        public async Task<ActionResult<IEnumerable<Place>>> GetPlace()
         {
-            return await _context.Place_1.ToListAsync();
+            return await _context.Place.ToListAsync();
         }
 
         // GET: api/Place/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Place>> GetPlace(int id)
         {
-            var place = await _context.Place_1.FindAsync(id);
+            var place = await _context.Place.FindAsync(id);
 
             if (place == null)
             {
@@ -80,7 +80,7 @@ namespace GeoSupport_ms.Controllers
         [HttpPost]
         public async Task<ActionResult<Place>> PostPlace(Place place)
         {
-            _context.Place_1.Add(place);
+            _context.Place.Add(place);
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetPlace", new { id = place.Id_place }, place);
@@ -90,13 +90,13 @@ namespace GeoSupport_ms.Controllers
         [HttpDelete("{id}")]
         public async Task<ActionResult<Place>> DeletePlace(int id)
         {
-            var place = await _context.Place_1.FindAsync(id);
+            var place = await _context.Place.FindAsync(id);
             if (place == null)
             {
                 return NotFound();
             }
 
-            _context.Place_1.Remove(place);
+            _context.Place.Remove(place);
             await _context.SaveChangesAsync();
 
             return place;
@@ -104,7 +104,7 @@ namespace GeoSupport_ms.Controllers
 
         private bool PlaceExists(int id)
         {
-            return _context.Place_1.Any(e => e.Id_place == id);
+            return _context.Place.Any(e => e.Id_place == id);
         }
     }
 }

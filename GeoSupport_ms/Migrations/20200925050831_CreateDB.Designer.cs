@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GeoSupport_ms.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20200925044536_CreateDB")]
+    [Migration("20200925050831_CreateDB")]
     partial class CreateDB
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -32,8 +32,9 @@ namespace GeoSupport_ms.Migrations
                         .HasColumnType("nvarchar(20)")
                         .HasMaxLength(20);
 
-                    b.Property<double>("Name")
-                        .HasColumnType("float")
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(20)")
                         .HasMaxLength(20);
 
                     b.HasKey("Id_color");
@@ -165,7 +166,7 @@ namespace GeoSupport_ms.Migrations
 
                     b.HasIndex("CountryId_country");
 
-                    b.ToTable("Place_1");
+                    b.ToTable("Place");
                 });
 
             modelBuilder.Entity("GeoSupport_ms.Models.Color_Flag", b =>

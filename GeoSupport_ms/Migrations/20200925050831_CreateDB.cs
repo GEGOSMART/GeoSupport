@@ -12,7 +12,7 @@ namespace GeoSupport_ms.Migrations
                 {
                     Id_color = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<double>(maxLength: 20, nullable: false),
+                    Name = table.Column<string>(maxLength: 20, nullable: false),
                     HexCode = table.Column<string>(maxLength: 20, nullable: false)
                 },
                 constraints: table =>
@@ -103,7 +103,7 @@ namespace GeoSupport_ms.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Place_1",
+                name: "Place",
                 columns: table => new
                 {
                     Id_place = table.Column<int>(nullable: false)
@@ -115,9 +115,9 @@ namespace GeoSupport_ms.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Place_1", x => x.Id_place);
+                    table.PrimaryKey("PK_Place", x => x.Id_place);
                     table.ForeignKey(
-                        name: "FK_Place_1_Country_CountryId_country",
+                        name: "FK_Place_Country_CountryId_country",
                         column: x => x.CountryId_country,
                         principalTable: "Country",
                         principalColumn: "Id_country",
@@ -140,8 +140,8 @@ namespace GeoSupport_ms.Migrations
                 column: "FlagId_flag");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Place_1_CountryId_country",
-                table: "Place_1",
+                name: "IX_Place_CountryId_country",
+                table: "Place",
                 column: "CountryId_country");
         }
 
@@ -151,7 +151,7 @@ namespace GeoSupport_ms.Migrations
                 name: "Color_Flag");
 
             migrationBuilder.DropTable(
-                name: "Place_1");
+                name: "Place");
 
             migrationBuilder.DropTable(
                 name: "Color");

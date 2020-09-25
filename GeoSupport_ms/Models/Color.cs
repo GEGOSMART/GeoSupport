@@ -13,7 +13,7 @@ namespace GeoSupport_ms.Models
         public int Id_color { get; set; }
         [Required]
         [MaxLength(20)]
-        public double Name { get; set; }
+        public string Name { get; set; }
         [Required]
         [MaxLength(20)]
         public string HexCode { get; set; }
