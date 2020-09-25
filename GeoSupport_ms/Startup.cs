@@ -27,9 +27,22 @@ namespace GeoSupport_ms
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            /*
+             ENV DB_P
+            ENV DB_U
+            ENV DB_S
+            ENV DB_N
+             */
+            string DB_P = Environment.GetEnvironmentVariable("DB_P");
+            string DB_U = Environment.GetEnvironmentVariable("DB_U");
+            string DB_S = Environment.GetEnvironmentVariable("DB_S");
+            string DB_N = Environment.GetEnvironmentVariable("DB_N");
+
             services.AddDbContext<AppDbContext>(
-                options => options.UseSqlServer(Configuration.GetConnectionString("ConnectionString"))
-                );
+                options => options.UseSqlServer(
+                    "Data Source=" + DB_S + ";Database=" +
+                    DB_N + ";User Id=" + DB_U + ";Password=" + DB_P + ";"));
+
             services.AddControllers();
         }
 
