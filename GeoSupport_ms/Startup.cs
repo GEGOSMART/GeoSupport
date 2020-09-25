@@ -42,6 +42,12 @@ namespace GeoSupport_ms
                 options => options.UseSqlServer(
                     "Data Source=" + DB_S + ";Database=" +
                     DB_N + ";User Id=" + DB_U + ";Password=" + DB_P + ";"));
+            /*
+             * use this when working in your own machine, put first ConnectionString in appsettings.json
+             * to burn the DB values
+             options => options.UseSqlServer(Configuration.GetConnectionString("ConnectionString"))
+                );
+             */
 
             services.AddControllers();
         }
