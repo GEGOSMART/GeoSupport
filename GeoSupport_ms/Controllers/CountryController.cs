@@ -51,7 +51,7 @@ namespace GeoSupport_ms.Controllers
             }
             Logger.Log("Entra");
             country.Places = placeQuery.FindWhereIdCountry(country.Id_country);
-            country.Flag = flagQuery.FindWhereIdFlag(country.FlagId_flag);
+            //country.Flag = flagQuery.FindWhereIdFlag(country.FlagId_flag);
             return country;
         }
 
