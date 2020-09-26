@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using GeoSupport_ms.Contexts;
 using GeoSupport_ms.Models;
+using GeoSupport_ms.Queries;
 
 namespace GeoSupport_ms.Controllers
 {
@@ -15,10 +16,12 @@ namespace GeoSupport_ms.Controllers
     public class ContinentController : ControllerBase
     {
         private readonly AppDbContext _context;
+        private readonly CountryQuery countryQuery;
 
         public ContinentController(AppDbContext context)
         {
             _context = context;
+            countryQuery = new CountryQuery(_context);
         }
 
         // GET: api/Continent
@@ -38,6 +41,7 @@ namespace GeoSupport_ms.Controllers
             {
                 return NotFound();
             }
+            continent.Countries = countryQuery.FindWhereIdContinent(continent.Id_continent);
 
             return continent;
         }
