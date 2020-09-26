@@ -9,6 +9,6 @@ namespace GeoSupport_ms.Queries
     public interface IQuery
     {
         public List<IModel> getAll();
-        public IModel getByPk();
+        public IModel getByPk(int pk);
     }
 }

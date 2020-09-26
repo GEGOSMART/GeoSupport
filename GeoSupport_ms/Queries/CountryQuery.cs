@@ -20,7 +20,7 @@ namespace GeoSupport_ms.Queries
             throw new NotImplementedException();
         }
 
-        public IModel getByPk()
+        public IModel getByPk(int pk)
         {
             throw new NotImplementedException();
         }

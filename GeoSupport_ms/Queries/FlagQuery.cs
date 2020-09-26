@@ -20,7 +20,7 @@ namespace GeoSupport_ms.Queries
             throw new NotImplementedException();
         }
 
-        public IModel getByPk()
+        public IModel getByPk(int pk)
         {
             throw new NotImplementedException();
         }
@@ -29,6 +29,7 @@ namespace GeoSupport_ms.Queries
             Flag flag = _context.Flag
                 .Where(s => s.Id_flag == idFlag).SingleOrDefault();
             return flag;
+
         }
     }
 }

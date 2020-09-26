@@ -23,9 +23,24 @@ namespace GeoSupport_ms.Queries
             throw new NotImplementedException();
         }
 
-        public IModel getByPk()
+        public IModel getByPk(int pk)
         {
-            throw new NotImplementedException();
+            return (Color)_context.Color
+                .Where(s => s.Id_color == pk).SingleOrDefault();
+        }
+        public List<Color> FindWhereId_flag(int idFlag)
+        {
+            Color_FlagQuery color_FlagQuery = new Color_FlagQuery(_context);
+            List<Color_Flag> color_flags = color_FlagQuery.FindWhereIdFlag(idFlag);
+            if (color_flags == null) {
+                return null;
+            }
+            List<Color> colors = new List<Color>();
+            foreach (Color_Flag color_flag in color_flags)
+            {
+                colors.Add((Color)this.getByPk(color_flag.Id_color));
+            }
+            return colors;
         }
 
     }

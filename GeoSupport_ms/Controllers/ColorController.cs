@@ -38,7 +38,6 @@ namespace GeoSupport_ms.Controllers
             {
                 return NotFound();
             }
-
             return color;
         }
 

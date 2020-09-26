@@ -16,7 +16,7 @@ namespace GeoSupport_ms.Controllers
     public class FlagController : ControllerBase
     {
         private readonly AppDbContext _context;
-        private readonly ColorQuery colorQuery;
+        private readonly ColorQuery colorQuery; 
 
         public FlagController(AppDbContext context)
         {
@@ -41,7 +41,7 @@ namespace GeoSupport_ms.Controllers
             {
                 return NotFound();
             }
-
+            flag.colors = colorQuery.FindWhereId_flag(flag.Id_flag);
             return flag;
         }
 
