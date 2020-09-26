@@ -33,6 +33,11 @@ namespace GeoSupport_ms.Controllers
         {
             return await _context.Country.ToListAsync();
         }
+        [HttpGet("ContinentId/{id}")]
+        public async Task<ActionResult<IEnumerable<Country>>> GetCountries(int id)
+        {
+            return await _context.Country.Where(s => s.ContinentId_continent == id).ToListAsync();
+        }
 
         // GET: api/Countrie/5
         [HttpGet("{id}")]
