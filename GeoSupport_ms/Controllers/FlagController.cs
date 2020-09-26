@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using GeoSupport_ms.Contexts;
 using GeoSupport_ms.Models;
+using GeoSupport_ms.Queries;
 
 namespace GeoSupport_ms.Controllers
 {
@@ -15,10 +16,12 @@ namespace GeoSupport_ms.Controllers
     public class FlagController : ControllerBase
     {
         private readonly AppDbContext _context;
+        private readonly ColorQuery colorQuery;
 
         public FlagController(AppDbContext context)
         {
             _context = context;
+            colorQuery = new ColorQuery(_context);
         }
 
         // GET: api/Flag

@@ -14,7 +14,8 @@ namespace GeoSupport_ms.Models
         [Required]
         [MaxLength(2000)]
         public string FlagImage { get; set; }
-        public List<Color_Flag> Color_Flags { get; set; } = new List<Color_Flag>();
+        [NotMapped]
+        public List<Color> colors { get; set; } = new List<Color>();
 
     }
 }
