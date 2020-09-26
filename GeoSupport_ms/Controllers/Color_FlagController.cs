@@ -29,10 +29,10 @@ namespace GeoSupport_ms.Controllers
         }
 
         // GET: api/Color_Flag/5
-        [HttpGet("{id}")]
-        public async Task<ActionResult<Color_Flag>> GetColor_Flag(int id)
+        [HttpGet("{c_id}/{f_id}")]
+        public async Task<ActionResult<Color_Flag>> GetColor_Flag(int c_id, int f_id)
         {
-            var color_Flag = await _context.Color_Flag.FindAsync(id);
+            var color_Flag = await _context.Color_Flag.FindAsync(c_id, f_id);
 
             if (color_Flag == null)
             {
@@ -45,10 +45,10 @@ namespace GeoSupport_ms.Controllers
         // PUT: api/Color_Flag/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
-        [HttpPut("{id}")]
-        public async Task<IActionResult> PutColor_Flag(int id, Color_Flag color_Flag)
+        [HttpPut("{c_id}/{f_id}")]
+        public async Task<IActionResult> PutColor_Flag(int c_id,int f_id, Color_Flag color_Flag)
         {
-            if (id != color_Flag.Id_color)
+            if (c_id != color_Flag.Id_color|| f_id != color_Flag.Id_flag)
             {
                 return BadRequest();
             }
@@ -61,7 +61,7 @@ namespace GeoSupport_ms.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!Color_FlagExists(id))
+                if (!Color_FlagExists(c_id,f_id))
                 {
                     return NotFound();
                 }
@@ -87,7 +87,7 @@ namespace GeoSupport_ms.Controllers
             }
             catch (DbUpdateException)
             {
-                if (Color_FlagExists(color_Flag.Id_color))
+                if (Color_FlagExists(color_Flag.Id_color,color_Flag.Id_flag))
                 {
                     return Conflict();
                 }
@@ -116,9 +116,9 @@ namespace GeoSupport_ms.Controllers
             return color_Flag;
         }
 
-        private bool Color_FlagExists(int id)
+        private bool Color_FlagExists(int c_id, int f_id)
         {
-            return _context.Color_Flag.Any(e => e.Id_color == id);
+            return _context.Color_Flag.Any(e => e.Id_color == c_id) && _context.Color_Flag.Any(e => e.Id_flag == f_id);
         }
     }
 }
