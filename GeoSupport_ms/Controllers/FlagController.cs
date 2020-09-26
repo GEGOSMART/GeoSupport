@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using GeoSupport_ms.Contexts;
 using GeoSupport_ms.Models;
 using GeoSupport_ms.Queries;
+using GeoSupport_ms.Responses;
 
 namespace GeoSupport_ms.Controllers
 {
@@ -33,7 +34,7 @@ namespace GeoSupport_ms.Controllers
 
         // GET: api/Flag/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Flag>> GetFlag(int id)
+        public async Task<ActionResult<FlagColors>> GetFlag(int id)
         {
             var flag = await _context.Flag.FindAsync(id);
 
@@ -41,8 +42,9 @@ namespace GeoSupport_ms.Controllers
             {
                 return NotFound();
             }
-            flag.colors = colorQuery.FindWhereId_flag(flag.Id_flag);
-            return flag;
+            List<ColorOrder> colors = colorQuery.FindWhereId_flag(flag.Id_flag);
+
+            return new FlagColors(flag, colors);
         }
 
         // PUT: api/Flag/5
