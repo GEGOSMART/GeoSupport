@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using GeoSupport_ms.Contexts;
 using GeoSupport_ms.Models;
+using GeoSupport_ms.Util;
+using GeoSupport_ms.Queries;
 
 namespace GeoSupport_ms.Controllers
 {
@@ -15,10 +17,14 @@ namespace GeoSupport_ms.Controllers
     public class CountryController : ControllerBase
     {
         private readonly AppDbContext _context;
+        private readonly PlaceQuery placeQuery;
+        private readonly FlagQuery flagQuery;
 
         public CountryController(AppDbContext context)
         {
             _context = context;
+            placeQuery = new PlaceQuery(_context);
+            flagQuery = new FlagQuery(_context);
         }
 
         // GET: api/Countrie
@@ -38,7 +44,9 @@ namespace GeoSupport_ms.Controllers
             {
                 return NotFound();
             }
-
+            Logger.Log("Entra");
+            country.Places = placeQuery.FindWhereIdCountry(country.Id_country);
+            country.Flag = flagQuery.FindWhereIdFlag(country.FlagId_flag);
             return country;
         }
 

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace GeoSupport_ms.Models
 {
-    public class Color
+    public class Color:IModel
     {
         [Key]
         public int Id_color { get; set; }

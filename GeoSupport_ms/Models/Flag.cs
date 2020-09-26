@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace GeoSupport_ms.Models
 {
-    public class Flag
+    public class Flag: IModel
     {
         [Key]
         public int Id_flag { get; set; }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GeoSupport_ms.Models
 {
-    public class Continent
+    public class Continent: IModel
     {
         [Key]
         public int Id_continent { get; set; }

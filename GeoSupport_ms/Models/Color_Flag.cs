@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace GeoSupport_ms.Models
 {
-    public class Color_Flag
+    public class Color_Flag:IModel
     {
         [ForeignKey("Flag")]
         public int Id_flag { get; set; }

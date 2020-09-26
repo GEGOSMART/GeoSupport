@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace GeoSupport_ms.Models
 {
-    public class Country
+    public class Country: IModel
     {
         [Key]
         public int Id_country { get; set; }

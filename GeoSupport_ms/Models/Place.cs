@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace GeoSupport_ms.Models
 {
-    public class Place
+    public class Place: IModel
     {
         [Key]
         public int Id_place { get; set; }
