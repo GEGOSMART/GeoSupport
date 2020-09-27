@@ -50,6 +50,7 @@ namespace GeoSupport_ms.Controllers
         /// <summary>
         /// Gets a specific Country element given its Id
         /// </summary>
+        /// <response code="404">If there is not item whit that id</response>
         [HttpGet("{id}")]
         public async Task<ActionResult<Country>> GetCountry(int id)
         {
@@ -71,6 +72,9 @@ namespace GeoSupport_ms.Controllers
         /// <summary>
         /// Updates a specific Country element given its Id
         /// </summary>
+        /// <response code="400">If given id not valid</response>
+        /// <response code="404">When an error is producted updating db</response>
+
         [HttpPut("{id}")]
         public async Task<IActionResult> PutCountry(int id, Country country)
         {
@@ -119,6 +123,7 @@ namespace GeoSupport_ms.Controllers
         /// <summary>
         /// Deletes a specific Country register given its Id
         /// </summary>
+        /// <response code="404">If there is not item whit that id</response>
         [HttpDelete("{id}")]
         public async Task<ActionResult<Country>> DeleteCountry(int id)
         {

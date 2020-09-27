@@ -36,6 +36,7 @@ namespace GeoSupport_ms.Controllers
         /// <summary>
         /// Gets a specific Color_Flag element given its color_id (c_id) and flag_id (f_id)
         /// </summary>
+        /// <response code="404">If there is not item whit those ids</response>
         [HttpGet("{c_id}/{f_id}")]
         public async Task<ActionResult<Color_Flag>> GetColor_Flag(int c_id, int f_id)
         {
@@ -55,6 +56,8 @@ namespace GeoSupport_ms.Controllers
         /// <summary>
         /// Updates a specific Color_Flag element given its color_id (c_id) and flag_id (f_id)
         /// </summary>
+        /// <response code="400">If given ids not valid</response>
+        /// <response code="404">When an error is producted updating db</response>
         [HttpPut("{c_id}/{f_id}")]
         public async Task<IActionResult> PutColor_Flag(int c_id,int f_id, Color_Flag color_Flag)
         {
@@ -90,6 +93,7 @@ namespace GeoSupport_ms.Controllers
         /// <summary>
         /// Inserts a new Color_Flag register in database
         /// </summary>
+        /// <response code="409">When there is already a register with those Ids</response>
         [HttpPost]
         public async Task<ActionResult<Color_Flag>> PostColor_Flag(Color_Flag color_Flag)
         {
@@ -117,6 +121,7 @@ namespace GeoSupport_ms.Controllers
         /// <summary>
         /// Deletes a specific Color_Flag element given its color_id (c_id) and flag_id (f_id)
         /// </summary>
+        /// <response code="404">If there is not item whit those ids</response>
         [HttpDelete("{c_id}/{f_id}")]
         public async Task<ActionResult<Color_Flag>> DeleteColor_Flag(int c_id, int f_id)
         {

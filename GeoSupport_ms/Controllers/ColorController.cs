@@ -35,6 +35,7 @@ namespace GeoSupport_ms.Controllers
         /// <summary>
         /// Gets a specific Color element given its Id
         /// </summary>
+        /// <response code="404">If there is not item whit that id</response>
         [HttpGet("{id}")]
         public async Task<ActionResult<Color>> GetColor(int id)
         {
@@ -53,6 +54,8 @@ namespace GeoSupport_ms.Controllers
         /// <summary>
         /// Updates a specific Color element given its Id
         /// </summary>
+        /// <response code="400">If given id not valid</response>
+        /// <response code="404">When an error is producted updating db</response>
         [HttpPut("{id}")]
         public async Task<IActionResult> PutColor(int id, Color color)
         {
