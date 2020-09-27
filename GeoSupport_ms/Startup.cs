@@ -12,6 +12,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.OpenApi.Models;
 
 namespace GeoSupport_ms
 {
@@ -28,7 +29,17 @@ namespace GeoSupport_ms
         public void ConfigureServices(IServiceCollection services)
         {
             // Register the Swagger generator, defining 1 or more Swagger documents
-            services.AddSwaggerGen();
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo
+                {
+                    Version = "v1",
+                    Title = "GeoSupport_ms",
+                    Description = "Hello world, and welcome to the GeoSupport_ms API gide!"+ "\n"+
+                    "GeoSupport is an ASP.Net Core microservice for the GeoSmart project." + "\n" +
+                    "Go ahead and check all the request you can use :) .",
+                });
+            });
 
             string DB_P = Environment.GetEnvironmentVariable("DB_P");
             string DB_U = Environment.GetEnvironmentVariable("DB_U");
