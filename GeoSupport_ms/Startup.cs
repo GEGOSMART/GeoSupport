@@ -51,8 +51,9 @@ namespace GeoSupport_ms
             string DB_S = Environment.GetEnvironmentVariable("DB_S");
             string DB_N = Environment.GetEnvironmentVariable("DB_N");
             services.AddDbContext<AppDbContext>(
-             options => options.UseSqlServer(Configuration.GetConnectionString("ConnectionString"))
-                );
+                options => options.UseSqlServer(
+                    "Data Source=" + DB_S + ";Database=" +
+                    DB_N + ";User Id=" + DB_U + ";Password=" + DB_P + ";"));
 
             /*
              * use this when deployed to aws instance
