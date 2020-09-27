@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 using GeoSupport_ms.Contexts;
 using Microsoft.AspNetCore.Builder;
@@ -39,8 +41,11 @@ namespace GeoSupport_ms
                     "GeoSupport is an ASP.Net Core microservice for the GeoSmart project." + "\n" +
                     "Go ahead and check all the request you can use :) .",
                 });
+                // Set the comments path for the Swagger JSON and UI.
+                var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+                c.IncludeXmlComments(xmlPath);
             });
-
             string DB_P = Environment.GetEnvironmentVariable("DB_P");
             string DB_U = Environment.GetEnvironmentVariable("DB_U");
             string DB_S = Environment.GetEnvironmentVariable("DB_S");

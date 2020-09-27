@@ -22,6 +22,10 @@ namespace GeoSupport_ms.Controllers
         }
 
         // GET: api/Color_Flag
+        /// <summary>
+        /// Gets a list of Color_Flags elements.
+        /// </summary>
+
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Color_Flag>>> GetColor_Flag()
         {
@@ -29,6 +33,9 @@ namespace GeoSupport_ms.Controllers
         }
 
         // GET: api/Color_Flag/5
+        /// <summary>
+        /// Gets a specific Color_Flag element given its color_id (c_id) and flag_id (f_id).
+        /// </summary>
         [HttpGet("{c_id}/{f_id}")]
         public async Task<ActionResult<Color_Flag>> GetColor_Flag(int c_id, int f_id)
         {
@@ -45,6 +52,9 @@ namespace GeoSupport_ms.Controllers
         // PUT: api/Color_Flag/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
+        /// <summary>
+        /// Updates a specific Color_Flag element given its color_id (c_id) and flag_id (f_id).
+        /// </summary>
         [HttpPut("{c_id}/{f_id}")]
         public async Task<IActionResult> PutColor_Flag(int c_id,int f_id, Color_Flag color_Flag)
         {
@@ -77,6 +87,9 @@ namespace GeoSupport_ms.Controllers
         // POST: api/Color_Flag
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
+        /// <summary>
+        /// Inserts a new Color_Flag register in database.
+        /// </summary>
         [HttpPost]
         public async Task<ActionResult<Color_Flag>> PostColor_Flag(Color_Flag color_Flag)
         {
@@ -101,10 +114,13 @@ namespace GeoSupport_ms.Controllers
         }
 
         // DELETE: api/Color_Flag/5
-        [HttpDelete("{id}")]
-        public async Task<ActionResult<Color_Flag>> DeleteColor_Flag(int id)
+        /// <summary>
+        /// Deletes a specific Color_Flag element given its color_id (c_id) and flag_id (f_id).
+        /// </summary>
+        [HttpDelete("{c_id}/{f_id}")]
+        public async Task<ActionResult<Color_Flag>> DeleteColor_Flag(int c_id, int f_id)
         {
-            var color_Flag = await _context.Color_Flag.FindAsync(id);
+            var color_Flag = await _context.Color_Flag.FindAsync(c_id, f_id);
             if (color_Flag == null)
             {
                 return NotFound();
