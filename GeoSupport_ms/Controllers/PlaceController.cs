@@ -22,6 +22,9 @@ namespace GeoSupport_ms.Controllers
         }
 
         // GET: api/Place
+        /// <summary>
+        /// Gets a list of Place elements
+        /// </summary>
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Place>>> GetPlace()
         {
@@ -29,6 +32,9 @@ namespace GeoSupport_ms.Controllers
         }
 
         // GET: api/Place/5
+        /// <summary>
+        /// Gets a specific Continent element given its Id
+        /// </summary>
         [HttpGet("{id}")]
         public async Task<ActionResult<Place>> GetPlace(int id)
         {
@@ -45,6 +51,9 @@ namespace GeoSupport_ms.Controllers
         // PUT: api/Place/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
+        /// <summary>
+        /// Updates a specific Continent element given its Id
+        /// </summary>
         [HttpPut("{id}")]
         public async Task<IActionResult> PutPlace(int id, Place place)
         {
@@ -77,6 +86,9 @@ namespace GeoSupport_ms.Controllers
         // POST: api/Place
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
+        /// <summary>
+        /// Inserts a new Place register in database
+        /// </summary>
         [HttpPost]
         public async Task<ActionResult<Place>> PostPlace(Place place)
         {
@@ -87,6 +99,9 @@ namespace GeoSupport_ms.Controllers
         }
 
         // DELETE: api/Place/5
+        /// <summary>
+        /// Deletes a specific Place register given its Id
+        /// </summary>
         [HttpDelete("{id}")]
         public async Task<ActionResult<Place>> DeletePlace(int id)
         {

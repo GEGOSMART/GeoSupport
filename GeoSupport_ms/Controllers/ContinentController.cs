@@ -25,6 +25,9 @@ namespace GeoSupport_ms.Controllers
         }
 
         // GET: api/Continent
+        /// <summary>
+        /// Gets a list of Continent elements
+        /// </summary>
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Continent>>> GetContinent()
         {
@@ -32,6 +35,9 @@ namespace GeoSupport_ms.Controllers
         }
 
         // GET: api/Continent/5
+        /// <summary>
+        /// Gets a specific Continent element given its Id
+        /// </summary>
         [HttpGet("{id}")]
         public async Task<ActionResult<Continent>> GetContinent(int id)
         {
@@ -49,6 +55,9 @@ namespace GeoSupport_ms.Controllers
         // PUT: api/Continent/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
+        /// <summary>
+        /// Updates a specific Continent element given its Id
+        /// </summary>
         [HttpPut("{id}")]
         public async Task<IActionResult> PutContinent(int id, Continent continent)
         {
@@ -81,6 +90,9 @@ namespace GeoSupport_ms.Controllers
         // POST: api/Continent
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
+        /// <summary>
+        /// Inserts a new Continent register in database
+        /// </summary>
         [HttpPost]
         public async Task<ActionResult<Continent>> PostContinent(Continent continent)
         {
@@ -91,6 +103,9 @@ namespace GeoSupport_ms.Controllers
         }
 
         // DELETE: api/Continent/5
+        /// <summary>
+        /// Deletes a specific Continent register given its Id
+        /// </summary>
         [HttpDelete("{id}")]
         public async Task<ActionResult<Continent>> DeleteContinent(int id)
         {

@@ -22,6 +22,9 @@ namespace GeoSupport_ms.Controllers
         }
 
         // GET: api/Color
+        /// <summary>
+        /// Gets a list of Color elements
+        /// </summary>
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Color>>> GetColor()
         {
@@ -29,6 +32,9 @@ namespace GeoSupport_ms.Controllers
         }
 
         // GET: api/Color/5
+        /// <summary>
+        /// Gets a specific Color element given its Id
+        /// </summary>
         [HttpGet("{id}")]
         public async Task<ActionResult<Color>> GetColor(int id)
         {
@@ -44,6 +50,9 @@ namespace GeoSupport_ms.Controllers
         // PUT: api/Color/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
+        /// <summary>
+        /// Updates a specific Color element given its Id
+        /// </summary>
         [HttpPut("{id}")]
         public async Task<IActionResult> PutColor(int id, Color color)
         {
@@ -76,6 +85,9 @@ namespace GeoSupport_ms.Controllers
         // POST: api/Color
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
+        /// <summary>
+        /// Inserts a new Color register in database
+        /// </summary>
         [HttpPost]
         public async Task<ActionResult<Color>> PostColor(Color color)
         {
@@ -86,6 +98,9 @@ namespace GeoSupport_ms.Controllers
         }
 
         // DELETE: api/Color/5
+        /// <summary>
+        /// Deletes a specific Color register given its Id
+        /// </summary>
         [HttpDelete("{id}")]
         public async Task<ActionResult<Color>> DeleteColor(int id)
         {

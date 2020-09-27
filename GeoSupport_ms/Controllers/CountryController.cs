@@ -28,11 +28,18 @@ namespace GeoSupport_ms.Controllers
         }
 
         // GET: api/Countrie
+   
+        /// <summary>
+        /// Gets a list of Country elements
+        /// </summary>
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Country>>> GetCountry()
         {
             return await _context.Country.ToListAsync();
         }
+        /// <summary>
+        /// Gets a list of Country elements that belong to the continent of the given Id
+        /// </summary>
         [HttpGet("ContinentId/{id}")]
         public async Task<ActionResult<IEnumerable<Country>>> GetCountries(int id)
         {
@@ -40,6 +47,9 @@ namespace GeoSupport_ms.Controllers
         }
 
         // GET: api/Countrie/5
+        /// <summary>
+        /// Gets a specific Country element given its Id
+        /// </summary>
         [HttpGet("{id}")]
         public async Task<ActionResult<Country>> GetCountry(int id)
         {
@@ -58,6 +68,9 @@ namespace GeoSupport_ms.Controllers
         // PUT: api/Countrie/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
+        /// <summary>
+        /// Updates a specific Country element given its Id
+        /// </summary>
         [HttpPut("{id}")]
         public async Task<IActionResult> PutCountry(int id, Country country)
         {
@@ -90,6 +103,9 @@ namespace GeoSupport_ms.Controllers
         // POST: api/Countrie
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
+        /// <summary>
+        /// Inserts a new Country register in database
+        /// </summary>
         [HttpPost]
         public async Task<ActionResult<Country>> PostCountry(Country country)
         {
@@ -100,6 +116,9 @@ namespace GeoSupport_ms.Controllers
         }
 
         // DELETE: api/Countrie/5
+        /// <summary>
+        /// Deletes a specific Country register given its Id
+        /// </summary>
         [HttpDelete("{id}")]
         public async Task<ActionResult<Country>> DeleteCountry(int id)
         {

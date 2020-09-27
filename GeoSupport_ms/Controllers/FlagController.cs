@@ -26,6 +26,9 @@ namespace GeoSupport_ms.Controllers
         }
 
         // GET: api/Flag
+        /// <summary>
+        /// Gets a list of Flag elements
+        /// </summary>
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Flag>>> GetFlag()
         {
@@ -33,6 +36,9 @@ namespace GeoSupport_ms.Controllers
         }
 
         // GET: api/Flag/5
+        /// <summary>
+        /// Gets a specific Flag element given its Id
+        /// </summary>
         [HttpGet("{id}")]
         public async Task<ActionResult<FlagColors>> GetFlag(int id)
         {
@@ -50,6 +56,9 @@ namespace GeoSupport_ms.Controllers
         // PUT: api/Flag/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
+        /// <summary>
+        /// Updates a specific Flag element given its Id
+        /// </summary>
         [HttpPut("{id}")]
         public async Task<IActionResult> PutFlag(int id, Flag flag)
         {
@@ -82,6 +91,9 @@ namespace GeoSupport_ms.Controllers
         // POST: api/Flag
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
+        /// <summary>
+        /// Inserts a new Flag register in database
+        /// </summary>
         [HttpPost]
         public async Task<ActionResult<Flag>> PostFlag(Flag flag)
         {
@@ -92,6 +104,9 @@ namespace GeoSupport_ms.Controllers
         }
 
         // DELETE: api/Flag/5
+        /// <summary>
+        /// Deletes a specific Flag register given its Id
+        /// </summary>
         [HttpDelete("{id}")]
         public async Task<ActionResult<Flag>> DeleteFlag(int id)
         {
