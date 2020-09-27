@@ -27,7 +27,9 @@ namespace GeoSupport_ms
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-       
+            // Register the Swagger generator, defining 1 or more Swagger documents
+            services.AddSwaggerGen();
+
             string DB_P = Environment.GetEnvironmentVariable("DB_P");
             string DB_U = Environment.GetEnvironmentVariable("DB_U");
             string DB_S = Environment.GetEnvironmentVariable("DB_S");
@@ -63,6 +65,13 @@ namespace GeoSupport_ms
             {
                 app.UseDeveloperExceptionPage();
             }
+            // Enable middleware to serve generated Swagger as a JSON endpoint.
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+                c.RoutePrefix = string.Empty;
+            });
 
             app.UseHttpsRedirection();
 
