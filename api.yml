@@ -1,0 +1,1038 @@
+---
+openapi: 3.0.1
+info:
+  title: GeoSupport_ms
+  description: |-
+    Hello world, and welcome to the GeoSupport_ms API gide!
+    GeoSupport is an ASP.Net Core microservice for the GeoSmart project.
+    Go ahead and check all the request you can use :) .
+  version: v1
+paths:
+  "/api/Color":
+    get:
+      tags:
+      - Color
+      summary: Gets a list of Color elements
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/Color"
+            application/json:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/Color"
+            text/json:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/Color"
+    post:
+      tags:
+      - Color
+      summary: Inserts a new Color register in database
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/Color"
+          text/json:
+            schema:
+              "$ref": "#/components/schemas/Color"
+          application/*+json:
+            schema:
+              "$ref": "#/components/schemas/Color"
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                "$ref": "#/components/schemas/Color"
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Color"
+            text/json:
+              schema:
+                "$ref": "#/components/schemas/Color"
+  "/api/Color/{id}":
+    get:
+      tags:
+      - Color
+      summary: Gets a specific Color element given its Id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                "$ref": "#/components/schemas/Color"
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Color"
+            text/json:
+              schema:
+                "$ref": "#/components/schemas/Color"
+        '404':
+          description: If there is not item whit that id
+    put:
+      tags:
+      - Color
+      summary: Updates a specific Color element given its Id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/Color"
+          text/json:
+            schema:
+              "$ref": "#/components/schemas/Color"
+          application/*+json:
+            schema:
+              "$ref": "#/components/schemas/Color"
+      responses:
+        '200':
+          description: Success
+        '400':
+          description: If given id not valid
+        '404':
+          description: When an error is producted updating db
+    delete:
+      tags:
+      - Color
+      summary: Deletes a specific Color register given its Id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                "$ref": "#/components/schemas/Color"
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Color"
+            text/json:
+              schema:
+                "$ref": "#/components/schemas/Color"
+  "/api/Color_Flag":
+    get:
+      tags:
+      - Color_Flag
+      summary: Gets a list of Color_Flags elements
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/Color_Flag"
+            application/json:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/Color_Flag"
+            text/json:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/Color_Flag"
+    post:
+      tags:
+      - Color_Flag
+      summary: Inserts a new Color_Flag register in database
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/Color_Flag"
+          text/json:
+            schema:
+              "$ref": "#/components/schemas/Color_Flag"
+          application/*+json:
+            schema:
+              "$ref": "#/components/schemas/Color_Flag"
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                "$ref": "#/components/schemas/Color_Flag"
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Color_Flag"
+            text/json:
+              schema:
+                "$ref": "#/components/schemas/Color_Flag"
+        '409':
+          description: When there is already a register with those Ids
+  "/api/Color_Flag/{c_id}/{f_id}":
+    get:
+      tags:
+      - Color_Flag
+      summary: Gets a specific Color_Flag element given its color_id (c_id) and flag_id
+        (f_id)
+      parameters:
+      - name: c_id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: f_id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                "$ref": "#/components/schemas/Color_Flag"
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Color_Flag"
+            text/json:
+              schema:
+                "$ref": "#/components/schemas/Color_Flag"
+        '404':
+          description: If there is not item whit those ids
+    put:
+      tags:
+      - Color_Flag
+      summary: Updates a specific Color_Flag element given its color_id (c_id) and
+        flag_id (f_id)
+      parameters:
+      - name: c_id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: f_id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/Color_Flag"
+          text/json:
+            schema:
+              "$ref": "#/components/schemas/Color_Flag"
+          application/*+json:
+            schema:
+              "$ref": "#/components/schemas/Color_Flag"
+      responses:
+        '200':
+          description: Success
+        '400':
+          description: If given ids not valid
+        '404':
+          description: When an error is producted updating db
+    delete:
+      tags:
+      - Color_Flag
+      summary: Deletes a specific Color_Flag element given its color_id (c_id) and
+        flag_id (f_id)
+      parameters:
+      - name: c_id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: f_id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                "$ref": "#/components/schemas/Color_Flag"
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Color_Flag"
+            text/json:
+              schema:
+                "$ref": "#/components/schemas/Color_Flag"
+        '404':
+          description: If there is not item whit those ids
+  "/api/Continent":
+    get:
+      tags:
+      - Continent
+      summary: Gets a list of Continent elements
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/Continent"
+            application/json:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/Continent"
+            text/json:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/Continent"
+    post:
+      tags:
+      - Continent
+      summary: Inserts a new Continent register in database
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/Continent"
+          text/json:
+            schema:
+              "$ref": "#/components/schemas/Continent"
+          application/*+json:
+            schema:
+              "$ref": "#/components/schemas/Continent"
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                "$ref": "#/components/schemas/Continent"
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Continent"
+            text/json:
+              schema:
+                "$ref": "#/components/schemas/Continent"
+  "/api/Continent/{id}":
+    get:
+      tags:
+      - Continent
+      summary: Gets a specific Continent element given its Id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                "$ref": "#/components/schemas/Continent"
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Continent"
+            text/json:
+              schema:
+                "$ref": "#/components/schemas/Continent"
+        '404':
+          description: If there is not item whit that id
+    put:
+      tags:
+      - Continent
+      summary: Updates a specific Continent element given its Id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/Continent"
+          text/json:
+            schema:
+              "$ref": "#/components/schemas/Continent"
+          application/*+json:
+            schema:
+              "$ref": "#/components/schemas/Continent"
+      responses:
+        '200':
+          description: Success
+        '400':
+          description: If given id not valid
+        '404':
+          description: When an error is producted updating db
+    delete:
+      tags:
+      - Continent
+      summary: Deletes a specific Continent register given its Id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                "$ref": "#/components/schemas/Continent"
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Continent"
+            text/json:
+              schema:
+                "$ref": "#/components/schemas/Continent"
+        '404':
+          description: If there is not item whit that id
+  "/api/Country":
+    get:
+      tags:
+      - Country
+      summary: Gets a list of Country elements
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/Country"
+            application/json:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/Country"
+            text/json:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/Country"
+    post:
+      tags:
+      - Country
+      summary: Inserts a new Country register in database
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/Country"
+          text/json:
+            schema:
+              "$ref": "#/components/schemas/Country"
+          application/*+json:
+            schema:
+              "$ref": "#/components/schemas/Country"
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                "$ref": "#/components/schemas/Country"
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Country"
+            text/json:
+              schema:
+                "$ref": "#/components/schemas/Country"
+  "/api/Country/ContinentId/{id}":
+    get:
+      tags:
+      - Country
+      summary: Gets a list of Country elements that belong to the continent of the
+        given Id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/Country"
+            application/json:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/Country"
+            text/json:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/Country"
+  "/api/Country/{id}":
+    get:
+      tags:
+      - Country
+      summary: Gets a specific Country element given its Id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                "$ref": "#/components/schemas/Country"
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Country"
+            text/json:
+              schema:
+                "$ref": "#/components/schemas/Country"
+        '404':
+          description: If there is not item whit that id
+    put:
+      tags:
+      - Country
+      summary: Updates a specific Country element given its Id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/Country"
+          text/json:
+            schema:
+              "$ref": "#/components/schemas/Country"
+          application/*+json:
+            schema:
+              "$ref": "#/components/schemas/Country"
+      responses:
+        '200':
+          description: Success
+        '400':
+          description: If given id not valid
+        '404':
+          description: When an error is producted updating db
+    delete:
+      tags:
+      - Country
+      summary: Deletes a specific Country register given its Id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                "$ref": "#/components/schemas/Country"
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Country"
+            text/json:
+              schema:
+                "$ref": "#/components/schemas/Country"
+        '404':
+          description: If there is not item whit that id
+  "/api/Flag":
+    get:
+      tags:
+      - Flag
+      summary: Gets a list of Flag elements
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/Flag"
+            application/json:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/Flag"
+            text/json:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/Flag"
+    post:
+      tags:
+      - Flag
+      summary: Inserts a new Flag register in database
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/Flag"
+          text/json:
+            schema:
+              "$ref": "#/components/schemas/Flag"
+          application/*+json:
+            schema:
+              "$ref": "#/components/schemas/Flag"
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                "$ref": "#/components/schemas/Flag"
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Flag"
+            text/json:
+              schema:
+                "$ref": "#/components/schemas/Flag"
+  "/api/Flag/{id}":
+    get:
+      tags:
+      - Flag
+      summary: Gets a specific Flag element given its Id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                "$ref": "#/components/schemas/FlagColors"
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/FlagColors"
+            text/json:
+              schema:
+                "$ref": "#/components/schemas/FlagColors"
+        '404':
+          description: If there is not item whit that id
+    put:
+      tags:
+      - Flag
+      summary: Updates a specific Flag element given its Id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/Flag"
+          text/json:
+            schema:
+              "$ref": "#/components/schemas/Flag"
+          application/*+json:
+            schema:
+              "$ref": "#/components/schemas/Flag"
+      responses:
+        '200':
+          description: Success
+        '400':
+          description: If given id not valid
+        '404':
+          description: When an error is producted updating db
+    delete:
+      tags:
+      - Flag
+      summary: Deletes a specific Flag register given its Id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                "$ref": "#/components/schemas/Flag"
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Flag"
+            text/json:
+              schema:
+                "$ref": "#/components/schemas/Flag"
+        '404':
+          description: If there is not item whit that id
+  "/api/Place":
+    get:
+      tags:
+      - Place
+      summary: Gets a list of Place elements
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/Place"
+            application/json:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/Place"
+            text/json:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/Place"
+    post:
+      tags:
+      - Place
+      summary: Inserts a new Place register in database
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/Place"
+          text/json:
+            schema:
+              "$ref": "#/components/schemas/Place"
+          application/*+json:
+            schema:
+              "$ref": "#/components/schemas/Place"
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                "$ref": "#/components/schemas/Place"
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Place"
+            text/json:
+              schema:
+                "$ref": "#/components/schemas/Place"
+  "/api/Place/{id}":
+    get:
+      tags:
+      - Place
+      summary: Gets a specific Continent element given its Id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                "$ref": "#/components/schemas/Place"
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Place"
+            text/json:
+              schema:
+                "$ref": "#/components/schemas/Place"
+        '404':
+          description: If there is not item whit that id
+    put:
+      tags:
+      - Place
+      summary: Updates a specific Continent element given its Id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/Place"
+          text/json:
+            schema:
+              "$ref": "#/components/schemas/Place"
+          application/*+json:
+            schema:
+              "$ref": "#/components/schemas/Place"
+      responses:
+        '200':
+          description: Success
+        '400':
+          description: If given id not valid
+        '404':
+          description: When an error is producted updating db
+    delete:
+      tags:
+      - Place
+      summary: Deletes a specific Place register given its Id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                "$ref": "#/components/schemas/Place"
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Place"
+            text/json:
+              schema:
+                "$ref": "#/components/schemas/Place"
+        '404':
+          description: If there is not item whit that id
+components:
+  schemas:
+    Flag:
+      required:
+      - flagImage
+      type: object
+      properties:
+        id_flag:
+          type: integer
+          format: int32
+        flagImage:
+          maxLength: 2000
+          type: string
+        colors:
+          type: array
+          items:
+            "$ref": "#/components/schemas/Color"
+          nullable: true
+      additionalProperties: false
+    Color:
+      required:
+      - hexCode
+      - name
+      type: object
+      properties:
+        id_color:
+          type: integer
+          format: int32
+        name:
+          maxLength: 20
+          type: string
+        hexCode:
+          maxLength: 20
+          type: string
+        flags:
+          type: array
+          items:
+            "$ref": "#/components/schemas/Flag"
+          nullable: true
+      additionalProperties: false
+    Color_Flag:
+      required:
+      - order
+      type: object
+      properties:
+        id_flag:
+          type: integer
+          format: int32
+        id_color:
+          type: integer
+          format: int32
+        order:
+          type: integer
+          format: int32
+        color:
+          "$ref": "#/components/schemas/Color"
+        flag:
+          "$ref": "#/components/schemas/Flag"
+      additionalProperties: false
+    Place:
+      required:
+      - description
+      - name
+      - placeImage
+      type: object
+      properties:
+        id_place:
+          type: integer
+          format: int32
+        countryId_country:
+          type: integer
+          format: int32
+        name:
+          maxLength: 200
+          type: string
+        description:
+          maxLength: 2000
+          type: string
+        placeImage:
+          maxLength: 2000
+          type: string
+      additionalProperties: false
+    Country:
+      required:
+      - capital
+      - latitude
+      - longitude
+      - mapImage
+      - name
+      type: object
+      properties:
+        id_country:
+          type: integer
+          format: int32
+        continentId_continent:
+          type: integer
+          format: int32
+        flagId_flag:
+          type: integer
+          format: int32
+        latitude:
+          type: number
+          format: double
+        longitude:
+          type: number
+          format: double
+        name:
+          maxLength: 20
+          type: string
+        capital:
+          maxLength: 20
+          type: string
+        mapImage:
+          maxLength: 2000
+          type: string
+        flag:
+          "$ref": "#/components/schemas/Flag"
+        places:
+          type: array
+          items:
+            "$ref": "#/components/schemas/Place"
+          nullable: true
+      additionalProperties: false
+    Continent:
+      required:
+      - name
+      type: object
+      properties:
+        id_continent:
+          type: integer
+          format: int32
+        name:
+          maxLength: 20
+          type: string
+        countries:
+          type: array
+          items:
+            "$ref": "#/components/schemas/Country"
+          nullable: true
+      additionalProperties: false
+    ColorOrder:
+      type: object
+      properties:
+        id_color:
+          type: integer
+          format: int32
+        name:
+          type: string
+          nullable: true
+        hexCode:
+          type: string
+          nullable: true
+        order:
+          type: integer
+          format: int32
+      additionalProperties: false
+    FlagColors:
+      type: object
+      properties:
+        id_flag:
+          type: integer
+          format: int32
+        flagImage:
+          type: string
+          nullable: true
+        colors:
+          type: array
+          items:
+            "$ref": "#/components/schemas/ColorOrder"
+          nullable: true
+      additionalProperties: false
