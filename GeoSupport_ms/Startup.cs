@@ -50,6 +50,7 @@ namespace GeoSupport_ms
             string DB_U = Environment.GetEnvironmentVariable("DB_U");
             string DB_S = Environment.GetEnvironmentVariable("DB_S");
             string DB_N = Environment.GetEnvironmentVariable("DB_N");
+            
             services.AddDbContext<AppDbContext>(
                 options => options.UseSqlServer(
                     "Data Source=" + DB_S + ";Database=" +

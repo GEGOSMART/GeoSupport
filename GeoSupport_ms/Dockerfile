@@ -21,7 +21,7 @@ FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
 ENTRYPOINT ["dotnet", "GeoSupport_ms.dll"]
-ENV DB_P = "-"
-ENV DB_U = "-"
-ENV DB_S = "-"
-ENV DB_N = "-"
+ENV DB_P=elefante
+ENV DB_U=admin
+ENV DB_S=geosupport.cx87yrncqzld.us-east-1.rds.amazonaws.com
+ENV DB_N=GeoSupport_db
